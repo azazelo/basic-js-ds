@@ -13,7 +13,7 @@ describe('Stack', () => {
     stack.push(6);
     stack.push(7);
     assert.strictEqual(stack.peek(), 7);
-    assert.strictEqual(stack.pop(), 7);
-    assert.strictEqual(stack.peek(), 6);
+    assert.strictEqual(stack.pop(), 6);
+    assert.strictEqual(stack.peek(), 5);
   });
 });

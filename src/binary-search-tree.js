@@ -7,40 +7,51 @@ const { NotImplementedError } = require('../extensions/index.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-
+  constructor(){
+    this.BinarySearchTree=[];
+    this.BinarySearchTree[0]
+   }
   root() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if(this.BinarySearchTree[0]===undefined){
+      return null
+    }
+    else{
+      this.BinarySearchTree[0]
+    }
   }
 
-  add(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  add( data ) {
+   this.BinarySearchTree.push(data);
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has( data ) {
+    if(this.BinarySearchTree.indexOf(data)===1){
+      return true
+    }
+    else{
+      return false
+    }
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find( data ) {
+    if(this.BinarySearchTree.indexOf(data)>-1){
+      return this.BinarySearchTree[1]
+    }
+    else{
+      return null
+    }
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  remove( data ) {
+    this.BinarySearchTree.filter(a => a !== data)
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return Math.min.apply(null,this.BinarySearchTree)
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return Math.max.apply(null,this.BinarySearchTree)
   }
 }
 

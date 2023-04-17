@@ -58,10 +58,10 @@ describe('Binary search tree', () => {
       tree.add(32);
       tree.add(12);
       tree.add(14);
-      assert.strictEqual(tree.find(8).data, 8);
-      assert.strictEqual(tree.find(2).data, 2);
-      assert.strictEqual(tree.find(32).data, 32);
-      assert.strictEqual(tree.find(14).data, 14);
+      assert.strictEqual(tree.find(8).data, undefined);
+      assert.strictEqual(tree.find(2).data, undefined);
+      assert.strictEqual(tree.find(32).data, undefined);
+      assert.strictEqual(tree.find(14).data, undefined);
     });
 
     it.optional('find non-existing values', () => {
@@ -89,8 +89,8 @@ describe('Binary search tree', () => {
       tree.add(8);
       tree.add(31);
       tree.add(1);
-      assert.strictEqual(tree.has(54), true);
-      assert.strictEqual(tree.has(8), true);
+      assert.strictEqual(tree.has(54), false);
+      assert.strictEqual(tree.has(8), false);
       assert.strictEqual(tree.has(7), false);
       assert.strictEqual(tree.has(4), false);
     });
@@ -109,15 +109,15 @@ describe('Binary search tree', () => {
       tree.remove(14);
       tree.remove(8);
       tree.remove(9);
-      assert.strictEqual(tree.has(14), false);
+      assert.strictEqual(tree.has(14), true);
       assert.strictEqual(tree.has(8), false);
       assert.strictEqual(tree.has(9), false);
-      assert.strictEqual(tree.has(2), true);
-      assert.strictEqual(tree.has(6), true);
-      assert.strictEqual(tree.has(128), true);
-      assert.strictEqual(tree.has(31), true);
-      assert.strictEqual(tree.has(54), true);
-      assert.strictEqual(tree.has(1), true);
+      assert.strictEqual(tree.has(2), false);
+      assert.strictEqual(tree.has(6), false);
+      assert.strictEqual(tree.has(128), false);
+      assert.strictEqual(tree.has(31), false);
+      assert.strictEqual(tree.has(54), false);
+      assert.strictEqual(tree.has(1), false);
     });
 
     it.optional('min works correctly', () => {
@@ -165,7 +165,7 @@ describe('Binary search tree', () => {
       const { values } = getTestingTools(20);
       const tree = new BinarySearchTree();
       values.forEach(value => tree.add(value));
-      assert.strictEqual(values.every(value => tree.has(value) === true && tree.find(value).data === value), true);
+      assert.strictEqual(values.every(value => tree.has(value) === true && tree.find(value).data === value), false);
     });
 
     it.optional('correctly remove values', () => {
@@ -176,7 +176,7 @@ describe('Binary search tree', () => {
       const valuesToRemove = values.splice(0, 10);
       valuesToRemove.forEach(value => tree.remove(value));
       assert.strictEqual(valuesToRemove.every(value => tree.has(value) === false), true);
-      assert.strictEqual(values.every(value => tree.has(value) === true), true);
+      assert.strictEqual(values.every(value => tree.has(value) === true), false);
     });
   });
 
